@@ -11,7 +11,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-GROQ_API_KEY = ""  # ← paste your Groq key here
+GROQ_API_KEY = "--------------"  # ← paste your Groq key here
 
 
 # LANGCHAIN — LOADERS, SPLITTER, EMBEDDINGS, VECTOR STORE
@@ -52,22 +52,16 @@ def get_llm():
 
 
 # DOCUMENT LOADER
-
-
 def load_pdf(file_path: str):
     """Load a PDF using LangChain's PyMuPDFLoader — preserves page metadata."""
     from langchain_community.document_loaders import PyMuPDFLoader
     loader = PyMuPDFLoader(file_path)
     return loader.load()   # list of Document(page_content, metadata)
-
-
 def load_docx(file_path: str):
     """Load a Word document using LangChain's Docx2txtLoader."""
     from langchain_community.document_loaders import Docx2txtLoader
     loader = Docx2txtLoader(file_path)
     return loader.load()
-
-
 def load_arxiv(arxiv_id: str):
     """
     Load a paper directly from arXiv using LangChain's ArxivLoader.
@@ -80,8 +74,6 @@ def load_arxiv(arxiv_id: str):
         load_all_available_meta=True,
     )
     return loader.load()
-
-
 def split_documents(docs):
     """
     Split documents into overlapping chunks using RecursiveCharacterTextSplitter.
@@ -96,10 +88,7 @@ def split_documents(docs):
     )
     return splitter.split_documents(docs)
 
-
-
 # LANGGRAPH — states and nodes
-
 
 from typing import TypedDict, List, Any
 
