@@ -92,6 +92,3 @@ streamlit run app.py
 
 ---
 
-## ⚠️ Important
-
-Never commit your Groq API key to GitHub. The `.gitignore` excludes `.env` files — consider moving your key there using `python-dotenv` before making the repo public.
